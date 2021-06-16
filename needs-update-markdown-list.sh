@@ -14,14 +14,14 @@ for x in $(ls); do
 
 		postcss_dependency=$(cat package.json | jq -r '.dependencies.postcss')
 		if [ "$postcss_dependency" != "null" ]; then
-			echo "- [ ] (${x})[https://github.com/postcss/${x}] - postcss : ${postcss_dependency}"
+			echo "- [ ] [${x}](https://github.com/postcss/${x}) - postcss : ${postcss_dependency}"
 
 			let needs_update=needs_update+1;
 		fi
 
 		postcss_peer_dependency=$(cat package.json | jq -r '.peerDependencies.postcss')
 		if [ "$postcss_peer_dependency" != "null" ]; then
-			echo "- [x] (${x})[https://github.com/postcss/${x}] - postcss : ${postcss_peer_dependency}"
+			echo "- [x] [${x}](https://github.com/postcss/${x}) - postcss : ${postcss_peer_dependency}"
 
 			let been_updated=been_updated+1;
 		fi
